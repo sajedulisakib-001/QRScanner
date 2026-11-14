@@ -231,7 +231,7 @@
         verdict: 'BLOCKED_PROTOCOL',
         badgeClass: 'badge-danger',
         badgeColor: '#ef4444',
-        badgeIcon: '🛑',
+        badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
         title: 'Dangerous Protocol Blocked',
         summary: 'Execution prevented: Blocked dangerous/privileged script protocol to protect your device.',
         warnings: ['Attempted to invoke executable or privileged protocol (javascript:, file:, or data:).'],
@@ -261,7 +261,7 @@
         verdict: 'SUSPICIOUS',
         badgeClass: 'badge-warning',
         badgeColor: '#f59e0b',
-        badgeIcon: '⚠️',
+        badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
         title: 'Direct IP / Local Address',
         summary: 'Caution: Points to a direct IP or local address rather than a registered public domain.',
         warnings: structure.warnings,
@@ -278,7 +278,7 @@
         verdict: 'SAFE',
         badgeClass: 'badge-safe',
         badgeColor: '#10b981',
-        badgeIcon: '🛡️',
+        badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>',
         title: 'Verified Safe (Trusted Public Domain)',
         summary: 'Verified authentic public domain with trusted reputation. Safe to visit.',
         warnings: [],
@@ -364,7 +364,7 @@
         verdict: 'MALICIOUS',
         badgeClass: 'badge-danger',
         badgeColor: '#ef4444',
-        badgeIcon: '🚨',
+        badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
         title: 'Threat Detected (Malware / Phishing / C2)',
         summary: 'Blocked by Cloudflare Security Threat Intelligence. This domain is reported as harmful or fraudulent.',
         warnings: [
@@ -388,7 +388,7 @@
         verdict: 'SUSPICIOUS',
         badgeClass: 'badge-warning',
         badgeColor: '#f59e0b',
-        badgeIcon: '⚠️',
+        badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
         title: 'Non-Existent / Inactive Domain',
         summary: 'This domain does not exist in public DNS (NXDOMAIN). It may be expired, spoofed, or a typo.',
         warnings: ['DNS lookup returned NXDOMAIN (domain does not exist).', ...warnings],
@@ -405,7 +405,7 @@
         verdict: 'SUSPICIOUS',
         badgeClass: 'badge-warning',
         badgeColor: '#f59e0b',
-        badgeIcon: '⚠️',
+        badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
         title: 'Suspicious URL Attributes',
         summary: 'Caution: This link exhibits deceptive or high-risk characteristics. Verify before visiting.',
         warnings,
@@ -425,7 +425,7 @@
       verdict: 'SAFE',
       badgeClass: 'badge-safe',
       badgeColor: '#10b981',
-      badgeIcon: '🛡️',
+      badgeIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>',
       title: 'Verified Safe to Visit',
       summary: 'Verified via Cloudflare Security Threat Intelligence & Google Public DNS. No security flags or threats detected.',
       warnings: [],
@@ -504,7 +504,7 @@
 
     if (isDangerousProtocol(rawUrl)) {
       await displayDialog({
-        title: '🛑 Dangerous Protocol Blocked',
+        title: 'Dangerous Protocol Blocked',
         message: 'Cannot open this link.\n\nDangerous script or privileged protocol detected (e.g. javascript: or file:). Execution has been blocked to protect your device.',
         type: 'danger',
         confirmText: 'Dismiss'
@@ -516,7 +516,7 @@
 
     if (report.verdict === 'MALICIOUS' || !report.canOpen) {
       await displayDialog({
-        title: '🚨 Threat Detected & Blocked',
+        title: 'Threat Detected & Blocked',
         message: `Destination: ${rawUrl}\n\nThreat Details: ${report.summary}\n\nTo protect your host device and privacy, opening this link has been prohibited.`,
         type: 'danger',
         confirmText: 'Got It'
@@ -526,8 +526,8 @@
 
     if (report.verdict === 'SUSPICIOUS') {
       const warningText = report.warnings.map(w => '• ' + w).join('\n');
-      const proceed = await displayDialog({
-        title: '⚠️ Security Warning',
+      await displayDialog({
+        title: 'Security Warning',
         message: `This link exhibits suspicious or unverified characteristics:\n\n${warningText}\n\nDestination: ${rawUrl}\n\nDo you want to proceed at your own risk?`,
         type: 'warning',
         confirmText: 'Proceed Anyway',

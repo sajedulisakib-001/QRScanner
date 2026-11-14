@@ -61,12 +61,12 @@
       overlay.className = 'app-modal-overlay';
 
       const iconMap = {
-        success: '✓',
-        warning: '⚠️',
-        danger: '🚨',
-        info: 'ℹ️'
+        success: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+        warning: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+        danger: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+        info: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'
       };
-      const icon = iconMap[type] || 'ℹ️';
+      const icon = iconMap[type] || iconMap.info;
 
       overlay.innerHTML = `
         <div class="app-modal-card" role="dialog" aria-modal="true">
@@ -163,13 +163,13 @@
       webhookHint.innerHTML = 'Must be the deployed Web App URL ending in <code>/exec</code> (not the <code>/edit</code> editor URL).';
       webhookHint.style.color = '#94a3b8';
     } else if (clean.includes('/edit')) {
-      webhookHint.innerHTML = '⚠️ <strong>Notice:</strong> This is the editor URL (/edit). In Google Apps Script, click <strong>Deploy &gt; Manage deployments</strong> to copy the URL ending in <strong>/exec</strong>.';
+      webhookHint.innerHTML = '<strong>Notice:</strong> This is the editor URL (/edit). In Google Apps Script, click <strong>Deploy &gt; Manage deployments</strong> to copy the URL ending in <strong>/exec</strong>.';
       webhookHint.style.color = '#f59e0b';
     } else if (clean.includes('/exec')) {
-      webhookHint.innerHTML = '✓ Valid Web App deployment URL detected (ends in /exec). Auto-backup is active!';
+      webhookHint.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Valid Web App deployment URL detected (ends in /exec). Auto-backup is active!';
       webhookHint.style.color = '#34d399';
     } else {
-      webhookHint.innerHTML = 'ℹ️ Note: Ensure this is the deployed Google Apps Script URL ending in <code>/exec</code>.';
+      webhookHint.innerHTML = 'Note: Ensure this is the deployed Google Apps Script URL ending in <code>/exec</code>.';
       webhookHint.style.color = '#94a3b8';
     }
   }
@@ -310,7 +310,7 @@
       if (countLabel) countLabel.textContent = `Showing 0 of ${allScans.length} scans`;
       container.innerHTML = `
         <div class="empty-state">
-          <div class="empty-icon">🔍</div>
+          <div class="empty-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
           <div style="font-size: 15px; font-weight: 600; color: #f1f5f9; margin-bottom: 6px;">
             ${allScans.length === 0 ? 'No scan history yet' : 'No matching scans found'}
           </div>
@@ -349,8 +349,8 @@
           <div class="item-body">
             <div class="item-text">${escapeHtml(item.text)}</div>
             <div class="item-meta">
-              <span>🕒 ${dateFormatted}</span>
-              ${isDangerous ? `<span style="color: #ef4444; font-weight: 600; font-size: 11px;">🛑 Dangerous Script Blocked</span>` : ''}
+              <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${dateFormatted}</span>
+              ${isDangerous ? `<span style="color: #ef4444; font-weight: 600; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Dangerous Script Blocked</span>` : ''}
               ${isUrl && !isDangerous ? `<button type="button" class="btn-safe-open" data-url="${escapeHtml(item.text)}" style="color: #60a5fa; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 12px; padding: 0;">Open Link ↗</button>` : ''}
             </div>
           </div>
@@ -566,7 +566,7 @@
           } catch (clipErr) {}
           await showAppModal({
             title: 'Customize Keyboard Shortcut',
-            message: 'Chrome manages all extension keyboard shortcuts in its native Shortcuts manager.\n\n1. Open a new tab (⌘T on Mac / Ctrl+T on Windows)\n2. Paste: chrome://extensions/shortcuts (already copied to your clipboard!)\n3. Find "QR & Barcode Snipping Scanner"\n4. Click the ✏️ pencil icon to record any key combination you want (e.g. ⌘⇧S, ⌘⌥Q, or any custom keys).\n5. Tip: You can switch it from "In Chrome" to "Global" to snip anywhere on your computer!',
+            message: 'Chrome manages all extension keyboard shortcuts in its native Shortcuts manager.\n\n1. Open a new tab (⌘T on Mac / Ctrl+T on Windows)\n2. Paste: chrome://extensions/shortcuts (already copied to your clipboard!)\n3. Find "QR & Barcode Snipping Scanner"\n4. Click the pencil (Edit) button to record any key combination you want (e.g. ⌘⇧S, ⌘⌥Q, or any custom keys).\n5. Tip: You can switch it from "In Chrome" to "Global" to snip anywhere on your computer!',
             type: 'info',
             confirmText: 'Got It!'
           });
@@ -667,7 +667,7 @@
         if (url.includes('/edit')) {
           await showAppModal({
             title: 'Invalid Web App URL',
-            message: '⚠️ The URL you entered contains "/edit".\n\nPlease enter the deployed Web App URL that ends with "/exec" (from Deploy > Manage deployments in Google Apps Script).',
+            message: 'The URL you entered contains "/edit".\n\nPlease enter the deployed Web App URL that ends with "/exec" (from Deploy > Manage deployments in Google Apps Script).',
             type: 'warning'
           });
           return;
@@ -699,7 +699,7 @@
             if (res && res.success) {
               await showAppModal({
                 title: 'Google Drive Connected!',
-                message: '✓ Success! A test row was sent to your Google Sheet in Google Drive. Open your spreadsheet to view the new row.',
+                message: 'Success! A test row was sent to your Google Sheet in Google Drive. Open your spreadsheet to view the new row.',
                 type: 'success',
                 confirmText: 'Great!'
               });
@@ -780,7 +780,7 @@
         if (url.includes('/edit')) {
           await showAppModal({
             title: 'Invalid Web App URL',
-            message: '⚠️ The URL you entered contains "/edit".\n\nPlease enter the deployed Web App URL that ends with "/exec" (from Deploy > Manage deployments in Google Apps Script).',
+            message: 'The URL you entered contains "/edit".\n\nPlease enter the deployed Web App URL that ends with "/exec" (from Deploy > Manage deployments in Google Apps Script).',
             type: 'warning'
           });
           if (webhookInput) webhookInput.focus();
@@ -822,7 +822,7 @@
           progressFill.style.background = 'linear-gradient(90deg, #3b82f6, #10b981)';
         }
         if (progressPercent) progressPercent.textContent = '0%';
-        if (progressLabel) progressLabel.innerHTML = '⚡ Syncing scans to Google Sheet...';
+        if (progressLabel) progressLabel.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>Syncing scans to Google Sheet...';
         if (progressCaption) progressCaption.textContent = `0 of ${allScans.length} scans synced`;
 
         syncAllBtn.disabled = true;
@@ -861,7 +861,7 @@
           progressFill.style.background = '#10b981';
         }
         if (progressPercent) progressPercent.textContent = '100%';
-        if (progressLabel) progressLabel.innerHTML = '✓ All scans synced successfully!';
+        if (progressLabel) progressLabel.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>All scans synced successfully!';
         if (progressCaption) progressCaption.textContent = `Completed! ${successCount} of ${total} scans appended to your Google Sheet.`;
 
         syncAllBtn.disabled = false;
@@ -881,7 +881,7 @@
 
         await showAppModal({
           title: 'Sync Complete!',
-          message: `✓ Successfully synced ${successCount} scans into your Google Sheet in Google Drive! Open your spreadsheet to view the new rows.`,
+          message: `Successfully synced ${successCount} scans into your Google Sheet in Google Drive! Open your spreadsheet to view the new rows.`,
           type: 'success',
           confirmText: 'Find in Drive ↗',
           cancelText: 'Done'
@@ -919,7 +919,7 @@
         window.open('https://sheets.new', '_blank');
         await showAppModal({
           title: 'Scans Copied to Clipboard!',
-          message: '📋 All scans have been copied to your clipboard in spreadsheet format!\n\nIn the newly opened Google Sheet, simply press Ctrl+V (or Cmd+V on Mac) to paste all your scans into neat rows and columns.',
+          message: 'All scans have been copied to your clipboard in spreadsheet format!\n\nIn the newly opened Google Sheet, simply press Ctrl+V (or Cmd+V on Mac) to paste all your scans into neat rows and columns.',
           type: 'success',
           confirmText: 'Got It!'
         });
@@ -959,7 +959,7 @@
 
         await showAppModal({
           title: 'Google Drive File Downloaded!',
-          message: '✓ Your scan history has been saved as a spreadsheet file.\n\nYou can drop it directly into Google Drive or double-click to open in Google Sheets or Excel anytime!',
+          message: 'Your scan history has been saved as a spreadsheet file.\n\nYou can drop it directly into Google Drive or double-click to open in Google Sheets or Excel anytime!',
           type: 'success',
           confirmText: 'Great!'
         });

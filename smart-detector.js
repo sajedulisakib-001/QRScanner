@@ -30,12 +30,38 @@
 (function (global) {
   'use strict';
 
+  const ICONS = {
+    text: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>',
+    wifi: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>',
+    vcard: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
+    event: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>',
+    whatsapp: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>',
+    email: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+    phone: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>',
+    sms: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
+    coupon: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>',
+    location: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>',
+    video: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>',
+    audio: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>',
+    pdf: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>',
+    image: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>',
+    app: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>',
+    menu: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>',
+    feedback: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+    multilink: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>',
+    business: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path><path d="M9 9h1"></path><path d="M9 13h1"></path><path d="M9 17h1"></path><path d="M14 9h1"></path><path d="M14 13h1"></path><path d="M14 17h1"></path></svg>',
+    social: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>',
+    url: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
+    product: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>',
+    logistics: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><line x1="4" y1="4" x2="4" y2="20"></line><line x1="7" y1="4" x2="7" y2="20"></line><line x1="11" y1="4" x2="11" y2="20"></line><line x1="14" y1="4" x2="14" y2="20"></line><line x1="17" y1="4" x2="17" y2="20"></line><line x1="20" y1="4" x2="20" y2="20"></line></svg>'
+  };
+
   function detect(text, format = '') {
     if (!text) {
       return {
         type: 'text',
         title: 'Plain Text',
-        icon: '📝',
+        icon: ICONS.text,
         badgeColor: '#64748b',
         badgeClass: 'badge-text',
         data: { text: '' },
@@ -66,7 +92,7 @@
       return {
         type: 'wifi',
         title: 'Wi-Fi Network',
-        icon: '📡',
+        icon: ICONS.wifi,
         badgeColor: '#3b82f6',
         badgeClass: 'badge-wifi',
         data: { ssid, password, authType, hidden, raw: trimmed },
@@ -133,7 +159,7 @@
       return {
         type: 'vcard',
         title: 'Contact Card (vCard)',
-        icon: '👤',
+        icon: ICONS.vcard,
         badgeColor: '#10b981',
         badgeClass: 'badge-vcard',
         data: { name: name || 'Contact', phone, email, org, title, url, note, rawVCard: trimmed },
@@ -173,7 +199,7 @@
       return {
         type: 'event',
         title: 'Calendar Event',
-        icon: '📅',
+        icon: ICONS.event,
         badgeColor: '#8b5cf6',
         badgeClass: 'badge-event',
         data: { summary, dtStart, dtEnd, location, description, googleCalUrl, rawICS: trimmed },
@@ -203,7 +229,7 @@
       return {
         type: 'whatsapp',
         title: 'WhatsApp Chat',
-        icon: '💬',
+        icon: ICONS.whatsapp,
         badgeColor: '#25D366',
         badgeClass: 'badge-whatsapp',
         data: { phone, message, openUrl, raw: trimmed },
@@ -242,7 +268,7 @@
       return {
         type: 'email',
         title: 'Email Message',
-        icon: '✉️',
+        icon: ICONS.email,
         badgeColor: '#0ea5e9',
         badgeClass: 'badge-email',
         data: { email, subject, body, mailtoUrl, gmailUrl },
@@ -260,7 +286,7 @@
       return {
         type: 'phone',
         title: 'Phone Call',
-        icon: '📞',
+        icon: ICONS.phone,
         badgeColor: '#10b981',
         badgeClass: 'badge-phone',
         data: { number, telUrl: `tel:${number}` },
@@ -292,7 +318,7 @@
       return {
         type: 'sms',
         title: 'SMS Message',
-        icon: '💬',
+        icon: ICONS.sms,
         badgeColor: '#f59e0b',
         badgeClass: 'badge-sms',
         data: { number, message, smsUrl },
@@ -309,7 +335,7 @@
       return {
         type: 'coupon',
         title: 'Coupon / Promo Code',
-        icon: '🏷️',
+        icon: ICONS.coupon,
         badgeColor: '#ec4899',
         badgeClass: 'badge-coupon',
         data: { promoCode },
@@ -330,7 +356,7 @@
       return {
         type: 'location',
         title: 'GPS Location',
-        icon: '📍',
+        icon: ICONS.location,
         badgeColor: '#ef4444',
         badgeClass: 'badge-location',
         data: { latitude: lat, longitude: lng, mapsUrl },
@@ -348,7 +374,7 @@
         return {
           type: 'video',
           title: 'Video / Media',
-          icon: '▶️',
+          icon: ICONS.video,
           badgeColor: '#ef4444',
           badgeClass: 'badge-video',
           data: { url: trimmed },
@@ -364,7 +390,7 @@
         return {
           type: 'audio',
           title: 'Music / Audio (MP3)',
-          icon: '🎵',
+          icon: ICONS.audio,
           badgeColor: '#10b981',
           badgeClass: 'badge-audio',
           data: { url: trimmed },
@@ -380,7 +406,7 @@
         return {
           type: 'pdf',
           title: 'PDF Document',
-          icon: '📄',
+          icon: ICONS.pdf,
           badgeColor: '#f97316',
           badgeClass: 'badge-pdf',
           data: { url: trimmed },
@@ -396,7 +422,7 @@
         return {
           type: 'image',
           title: 'Image File',
-          icon: '🖼️',
+          icon: ICONS.image,
           badgeColor: '#8b5cf6',
           badgeClass: 'badge-image',
           data: { url: trimmed },
@@ -412,7 +438,7 @@
         return {
           type: 'app',
           title: 'Mobile App Store',
-          icon: '📱',
+          icon: ICONS.app,
           badgeColor: '#3b82f6',
           badgeClass: 'badge-app',
           data: { url: trimmed },
@@ -428,7 +454,7 @@
         return {
           type: 'feedback',
           title: 'Feedback & Review',
-          icon: '⭐',
+          icon: ICONS.feedback,
           badgeColor: '#eab308',
           badgeClass: 'badge-feedback',
           data: { url: trimmed },
@@ -444,7 +470,7 @@
         return {
           type: 'menu',
           title: 'Restaurant / Food Menu',
-          icon: '🍽️',
+          icon: ICONS.menu,
           badgeColor: '#f97316',
           badgeClass: 'badge-menu',
           data: { url: trimmed },
@@ -460,7 +486,7 @@
         return {
           type: 'multilink',
           title: 'Multi-Link (Bio Hub)',
-          icon: '🔗',
+          icon: ICONS.multilink,
           badgeColor: '#6366f1',
           badgeClass: 'badge-multilink',
           data: { url: trimmed },
@@ -476,7 +502,7 @@
         return {
           type: 'business',
           title: 'Business Location / Maps',
-          icon: '🏬',
+          icon: ICONS.business,
           badgeColor: '#10b981',
           badgeClass: 'badge-business',
           data: { url: trimmed },
@@ -488,19 +514,19 @@
       }
 
       // 10j. Social Media Profiles
-      if (/instagram\.com/i.test(trimmed)) return makeSocial('Instagram Profile', '📸', '#d946ef', trimmed);
-      if (/twitter\.com|x\.com/i.test(trimmed)) return makeSocial('X (Twitter) Profile', '🐦', '#0ea5e9', trimmed);
-      if (/facebook\.com/i.test(trimmed)) return makeSocial('Facebook Page', '👥', '#2563eb', trimmed);
-      if (/linkedin\.com/i.test(trimmed)) return makeSocial('LinkedIn Profile', '💼', '#0284c7', trimmed);
-      if (/tiktok\.com/i.test(trimmed)) return makeSocial('TikTok Link', '🎵', '#000000', trimmed);
-      if (/threads\.net/i.test(trimmed)) return makeSocial('Threads Profile', '🧵', '#1e293b', trimmed);
-      if (/reddit\.com/i.test(trimmed)) return makeSocial('Reddit Link', '🤖', '#ff4500', trimmed);
+      if (/instagram\.com/i.test(trimmed)) return makeSocial('Instagram Profile', ICONS.social, '#d946ef', trimmed);
+      if (/twitter\.com|x\.com/i.test(trimmed)) return makeSocial('X (Twitter) Profile', ICONS.social, '#0ea5e9', trimmed);
+      if (/facebook\.com/i.test(trimmed)) return makeSocial('Facebook Page', ICONS.social, '#2563eb', trimmed);
+      if (/linkedin\.com/i.test(trimmed)) return makeSocial('LinkedIn Profile', ICONS.social, '#0284c7', trimmed);
+      if (/tiktok\.com/i.test(trimmed)) return makeSocial('TikTok Link', ICONS.audio, '#000000', trimmed);
+      if (/threads\.net/i.test(trimmed)) return makeSocial('Threads Profile', ICONS.social, '#1e293b', trimmed);
+      if (/reddit\.com/i.test(trimmed)) return makeSocial('Reddit Link', ICONS.social, '#ff4500', trimmed);
 
       // 10k. General Landing Page / Website
       return {
         type: 'url',
         title: 'Website Link',
-        icon: '🌐',
+        icon: ICONS.url,
         badgeColor: '#3b82f6',
         badgeClass: 'badge-url',
         data: { url: trimmed },
@@ -520,7 +546,7 @@
       return {
         type: 'product',
         title: 'Retail Product Barcode',
-        icon: '🛒',
+        icon: ICONS.product,
         badgeColor: '#f59e0b',
         badgeClass: 'badge-product',
         data: { barcode: trimmed, googleSearchUrl, amazonUrl, barcodeLookupUrl },
@@ -539,7 +565,7 @@
       return {
         type: 'logistics',
         title: 'Logistics / 1D Barcode',
-        icon: '📦',
+        icon: ICONS.logistics,
         badgeColor: '#8b5cf6',
         badgeClass: 'badge-logistics',
         data: { code: trimmed, searchUrl },
@@ -557,7 +583,7 @@
     return {
       type: 'text',
       title: 'Plain Text / Data',
-      icon: '📝',
+      icon: ICONS.text,
       badgeColor: '#64748b',
       badgeClass: 'badge-text',
       data: { text: trimmed, googleSearchUrl, translateUrl },

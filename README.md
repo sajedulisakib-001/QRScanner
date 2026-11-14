@@ -4,7 +4,7 @@ A lightweight, zero-dependency Chrome Extension (Manifest V3) that allows you to
 
 ---
 
-## ✨ Features
+## Features
 
 - **Snipping Tool UX**: Click the extension icon in the toolbar, screen dims, crosshairs appear, and you can click-and-drag to select the QR code or barcode.
 - **100% Pure JavaScript**: Zero NPM libraries, zero external build tools, zero network requests.
@@ -24,33 +24,33 @@ A lightweight, zero-dependency Chrome Extension (Manifest V3) that allows you to
 - **Unlimited Local History**: Keeps all your scan history locally in `chrome.storage.local` with real-time search, filter by format, filter by smart category, date timestamps, and one-click copy.
 - **Intelligent Payload Detection & Smart Contextual Actions**:
   - Automatically identifies the exact type of code scanned and displays specialized rich previews and actions:
-    - 📡 **Wi-Fi Networks**: Shows Network SSID, security encryption, and password with a Show/Hide toggle and 1-click **Copy Password**.
-    - 👤 **vCard / Contacts**: Displays contact name, phone, email, and organization with 1-click **Save Contact (.vcf)** download, direct call (`tel:`), and email.
-    - 💬 **WhatsApp Chats**: Recognizes WhatsApp chat links, shows recipient phone and pre-filled message, with 1-click **Open in WhatsApp**.
-    - ✉️ **Email Messages**: Parses `mailto:`, subject, and message body with 1-click **Compose in Gmail** and default mail client.
-    - 📞 **Phone Numbers**: 1-click **Call Phone (`tel:`)** and copy number.
-    - 💬 **SMS Messages**: Extracts number and message body with 1-click **Send SMS**.
-    - 📅 **Calendar Events**: Parses `VEVENT` / `VCALENDAR` with 1-click **Add to Google Calendar** and **Download .ics** file.
-    - 📍 **GPS & Location**: Detects coordinates and maps links with 1-click **Open in Google Maps**.
-    - 🛒 **Retail Products (EAN-13, UPC-A, EAN-8)**: 1-click **Google Shopping Search**, **Amazon Search**, and **BarcodeLookup**.
-    - ▶️ **Videos & Media (YouTube, Vimeo, MP4)**: 1-click **Watch Video**.
-    - 🎵 **Music & Audio (Spotify, Apple Music, SoundCloud, MP3)**: 1-click **Play Audio**.
-    - 📄 **PDF Documents**: 1-click **Open PDF** and download.
-    - 🖼️ **Image Files**: 1-click **View Image**.
-    - 📱 **Mobile App Stores**: Direct link to Google Play or iOS App Store.
-    - 📸 **Social Media Profiles**: Instagram, X (Twitter), Facebook, LinkedIn, TikTok, Threads, Reddit.
-    - 🍽️ **Restaurant & Food Menus**: Direct link to view menus and food ordering.
-    - ⭐ **Feedback & Reviews**: Google Reviews, Trustpilot, forms, and surveys.
-    - 🏷️ **Coupons & Promo Codes**: Displays promo code prominently with 1-click **Copy Promo Code**.
-    - 🔗 **Multi-Link Bio Hubs**: Linktree, Bio.link, Beacons, Bento.
-    - 📦 **Logistics / 1D Barcodes**: Direct tracking search on Google.
-    - 🌐 **Websites & Links**: Direct 1-click Open Link.
-    - 📝 **Plain Text**: Copy, search Google, or translate.
+    - **Wi-Fi Networks**: Shows Network SSID, security encryption, and password with a Show/Hide toggle and 1-click **Copy Password**.
+    - **vCard / Contacts**: Displays contact name, phone, email, and organization with 1-click **Save Contact (.vcf)** download, direct call (`tel:`), and email.
+    - **WhatsApp Chats**: Recognizes WhatsApp chat links, shows recipient phone and pre-filled message, with 1-click **Open in WhatsApp**.
+    - **Email Messages**: Parses `mailto:`, subject, and message body with 1-click **Compose in Gmail** and default mail client.
+    - **Phone Numbers**: 1-click **Call Phone (`tel:`)** and copy number.
+    - **SMS Messages**: Extracts number and message body with 1-click **Send SMS**.
+    - **Calendar Events**: Parses `VEVENT` / `VCALENDAR` with 1-click **Add to Google Calendar** and **Download .ics** file.
+    - **GPS & Location**: Detects coordinates and maps links with 1-click **Open in Google Maps**.
+    - **Retail Products (EAN-13, UPC-A, EAN-8)**: 1-click **Google Shopping Search**, **Amazon Search**, and **BarcodeLookup**.
+    - **Videos & Media (YouTube, Vimeo, MP4)**: 1-click **Watch Video**.
+    - **Music & Audio (Spotify, Apple Music, SoundCloud, MP3)**: 1-click **Play Audio**.
+    - **PDF Documents**: 1-click **Open PDF** and download.
+    - **Image Files**: 1-click **View Image**.
+    - **Mobile App Stores**: Direct link to Google Play or iOS App Store.
+    - **Social Media Profiles**: Instagram, X (Twitter), Facebook, LinkedIn, TikTok, Threads, Reddit.
+    - **Restaurant & Food Menus**: Direct link to view menus and food ordering.
+    - **Feedback & Reviews**: Google Reviews, Trustpilot, forms, and surveys.
+    - **Coupons & Promo Codes**: Displays promo code prominently with 1-click **Copy Promo Code**.
+    - **Multi-Link Bio Hubs**: Linktree, Bio.link, Beacons, Bento.
+    - **Logistics / 1D Barcodes**: Direct tracking search on Google.
+    - **Websites & Links**: Direct 1-click Open Link.
+    - **Plain Text**: Copy, search Google, or translate.
 - **Real-Time URL Safety & Public Threat Intelligence Verification**:
   - **Zero Blind Guessing**: Never marks links safe or unsafe blindly. Queries live, authoritative public threat intelligence databases:
-    - 🛡️ **Cloudflare Security 1.1.1.2 Threat Intelligence (DoH)**: Real-time detection of malware, phishing, exploit kits, and malicious command-and-control (C2) domains.
-    - 🌐 **Google Public DNS DoH**: Validates active DNS records, DNSSEC authenticity, and domain existence.
-    - 🔍 **Structural Anti-Phishing Heuristics**: Detects direct IP hosts, Punycode IDN homograph spoofing (`xn--...`), credential obfuscation (`@` in URL), subdomain brand deception, non-standard web ports, and high-risk disposable phishing TLDs.
+    - **Cloudflare Security 1.1.1.2 Threat Intelligence (DoH)**: Real-time detection of malware, phishing, exploit kits, and malicious command-and-control (C2) domains.
+    - **Google Public DNS DoH**: Validates active DNS records, DNSSEC authenticity, and domain existence.
+    - **Structural Anti-Phishing Heuristics**: Detects direct IP hosts, Punycode IDN homograph spoofing (`xn--...`), credential obfuscation (`@` in URL), subdomain brand deception, non-standard web ports, and high-risk disposable phishing TLDs.
   - **Host Compromise & Privilege Execution Prevention**:
     - Strictly blocks privileged/executable schemes (`javascript:`, `file:`, `data:`, `vbscript:`, `blob:`).
     - Prevents remote script injection, local file disclosure, and arbitrary code execution.
@@ -69,11 +69,11 @@ A lightweight, zero-dependency Chrome Extension (Manifest V3) that allows you to
 - **Instant Keyboard Shortcuts & Custom Keybinding Support**:
   - macOS default: `Command + Shift + S` (`⌘⇧S`)
   - Windows & Linux default: `Alt + Shift + S`
-  - Fully customizable: Users can set any custom hotkey (and make it global across the OS) via Chrome's native shortcut manager (`chrome://extensions/shortcuts` or the **⌨️ Shortcut** button in the dashboard).
+  - Fully customizable: Users can set any custom hotkey (and make it global across the OS) via Chrome's native shortcut manager (`chrome://extensions/shortcuts` or the **Shortcut** button in the dashboard).
 
 ---
 
-## 🚀 How to Install in Google Chrome
+## How to Install in Google Chrome
 
 1. Open Google Chrome.
 2. Navigate to `chrome://extensions/` in your address bar.
@@ -88,7 +88,7 @@ A lightweight, zero-dependency Chrome Extension (Manifest V3) that allows you to
 
 ---
 
-## 🧪 How to Test
+## How to Test
 
 1. Open `test.html` located in this folder in Chrome:
    - Either drag and drop `test.html` into Chrome, or
@@ -100,7 +100,7 @@ A lightweight, zero-dependency Chrome Extension (Manifest V3) that allows you to
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```
 QRScanner/

@@ -707,7 +707,7 @@
 
       <div class="snip-backdrop" id="snip-backdrop">
         <div class="snip-hint-banner">
-          <span>📐 Drag to select code</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M3 7V5a2 2 0 0 1 2-2h2m10 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2m-10 0H5a2 2 0 0 1-2-2v-2"></path></svg>Drag to select code</span>
           <button class="snip-banner-btn" id="snip-btn-fullpage" title="Scan entire visible tab">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
@@ -1124,7 +1124,7 @@
         <div class="snip-smart-box" style="border-color: #f97316;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Document Type</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #fb923c;">📄 Portable Document Format (PDF)</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #fb923c;">${smart.icon} Portable Document Format (PDF)</span>
           </div>
         </div>
       `;
@@ -1135,7 +1135,7 @@
         <div class="snip-smart-box" style="border-color: #3b82f6;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Application</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #60a5fa;">📱 Mobile App Store Listing</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #60a5fa;">${smart.icon} Mobile App Store Listing</span>
           </div>
         </div>
       `;
@@ -1146,7 +1146,7 @@
         <div class="snip-smart-box" style="border-color: #ef4444;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Media Stream</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #f87171;">▶️ Online Video Link</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #f87171;">${smart.icon} Online Video Link</span>
           </div>
         </div>
       `;
@@ -1157,7 +1157,7 @@
         <div class="snip-smart-box" style="border-color: #10b981;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Audio Stream</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #34d399;">🎵 Music / Audio Track</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #34d399;">${smart.icon} Music / Audio Track</span>
           </div>
         </div>
       `;
@@ -1168,7 +1168,7 @@
         <div class="snip-smart-box" style="border-color: #f97316;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Category</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #fb923c;">🍽️ Restaurant / Dining Menu</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #fb923c;">${smart.icon} Restaurant / Dining Menu</span>
           </div>
         </div>
       `;
@@ -1179,7 +1179,7 @@
         <div class="snip-smart-box" style="border-color: #eab308;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Category</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #facc15;">⭐ Customer Review &amp; Survey</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #facc15;">${smart.icon} Customer Review &amp; Survey</span>
           </div>
         </div>
       `;
@@ -1190,7 +1190,7 @@
         <div class="snip-smart-box" style="border-color: #6366f1;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Link Hub</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #818cf8;">🔗 Bio &amp; Multiple Links Page</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #818cf8;">${smart.icon} Bio &amp; Multiple Links Page</span>
           </div>
         </div>
       `;
@@ -1212,7 +1212,7 @@
         <div class="snip-smart-box" style="border-color: #10b981;">
           <div class="snip-smart-field">
             <span class="snip-smart-label">Location</span>
-            <span class="snip-smart-val" style="font-weight: 600; color: #34d399;">🏬 Business Profile / Maps</span>
+            <span class="snip-smart-val" style="font-weight: 600; color: #34d399;">${smart.icon} Business Profile / Maps</span>
           </div>
         </div>
       `;
@@ -1260,7 +1260,7 @@
           <div class="snip-card">
             <div class="snip-card-header">
               <h3>Scan successful</h3>
-              <button class="snip-close-btn" id="snip-btn-close" title="Close (ESC)">✕</button>
+              <button class="snip-close-btn" id="snip-btn-close" title="Close (ESC)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
             </div>
             <div class="snip-card-body" id="snip-modal-body">
               <div class="snip-meta-row">
@@ -1293,7 +1293,7 @@
               ` : ''}
 
               <div class="snip-sync-status-row" id="snip-sync-status-row">
-                <span class="snip-sync-check-icon">✓</span>
+                <span class="snip-sync-check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                 <span id="snip-sync-text">${escapeHtml(backupText)}</span>
               </div>
 
@@ -1363,7 +1363,7 @@
               await navigator.clipboard.writeText(textToCopy);
               btn.classList.add('snip-btn-success');
               const origHtml = btn.innerHTML;
-              btn.innerHTML = `✓ Copied!`;
+              btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Copied!';
               setTimeout(() => {
                 btn.classList.remove('snip-btn-success');
                 btn.innerHTML = origHtml;
@@ -1386,7 +1386,7 @@
             downloadBlob(act.filename, act.content, 'text/vcard');
             btn.classList.add('snip-btn-success');
             const origHtml = btn.innerHTML;
-            btn.innerHTML = `✓ Saved!`;
+            btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Saved!';
             setTimeout(() => {
               btn.classList.remove('snip-btn-success');
               btn.innerHTML = origHtml;
@@ -1395,7 +1395,7 @@
             downloadBlob(act.filename, act.content, 'text/calendar');
             btn.classList.add('snip-btn-success');
             const origHtml = btn.innerHTML;
-            btn.innerHTML = `✓ Saved!`;
+            btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Saved!';
             setTimeout(() => {
               btn.classList.remove('snip-btn-success');
               btn.innerHTML = origHtml;
@@ -1442,7 +1442,7 @@
             report.details.forEach(d => allDetails.push(`<div>• ${escapeHtml(d)}</div>`));
           }
           if (report.warnings && Array.isArray(report.warnings)) {
-            report.warnings.forEach(w => allDetails.push(`<div style="color: #f87171; font-weight: 500;">⚠️ ${escapeHtml(w)}</div>`));
+            report.warnings.forEach(w => allDetails.push(`<div style="color: #f87171; font-weight: 500; display: flex; align-items: flex-start; gap: 5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><span>${escapeHtml(w)}</span></div>`));
           }
 
           if (allDetails.length > 0 && details) {
@@ -1465,7 +1465,7 @@
               if (act && act.action === 'open') {
                 b.classList.add('snip-btn-disabled');
                 b.setAttribute('disabled', 'true');
-                b.textContent = '🚫 Open Blocked';
+                b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>Open Blocked';
                 b.title = 'Blocked by Threat Intelligence: ' + (report.summary || 'Malicious URL');
               }
             });
@@ -1475,7 +1475,7 @@
               const act = actions.find(a => a.id === actId);
               if (act && act.action === 'open') {
                 b.classList.add('snip-btn-warning');
-                b.textContent = '⚠️ ' + act.label + ' (Caution)';
+                b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>' + escapeHtml(act.label) + ' (Caution)';
               }
             });
           }
@@ -1512,11 +1512,11 @@
           <div class="snip-card">
             <div class="snip-card-header">
               <h3>No code detected</h3>
-              <button class="snip-close-btn" id="snip-btn-close">✕</button>
+              <button class="snip-close-btn" id="snip-btn-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
             </div>
             <div class="snip-card-body" id="snip-modal-body">
               <div class="snip-empty-state">
-                <div class="snip-empty-icon">🔍</div>
+                <div class="snip-empty-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
                 <div class="snip-empty-text">No QR code or barcode found</div>
                 <div class="snip-empty-subtext">
                   Please drag carefully around the entire code, leaving a small border around the edges.
@@ -1688,12 +1688,12 @@
       }
 
       const iconMap = {
-        success: '✓',
-        warning: '⚠️',
-        danger: '🚨',
-        info: 'ℹ️'
+        success: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+        warning: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+        danger: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+        info: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'
       };
-      const icon = iconMap[options.type] || 'ℹ️';
+      const icon = iconMap[options.type] || iconMap.info;
 
       const modalDiv = document.createElement('div');
       modalDiv.className = 'snip-modal-overlay';
@@ -1703,10 +1703,10 @@
         <div class="snip-card" style="max-width: 440px; width: 100%; border: 1px solid #334155; box-shadow: 0 25px 50px rgba(0,0,0,0.7);">
           <div class="snip-card-header">
             <h3>
-              <span style="font-size: 18px;">${icon}</span>
+              ${icon}
               ${escapeHtml(options.title || 'Security Notification')}
             </h3>
-            <button class="snip-close-btn" id="snip-submodal-close">✕</button>
+            <button class="snip-close-btn" id="snip-submodal-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
           </div>
           <div class="snip-card-body">
             <div style="font-size: 13.5px; line-height: 1.55; color: #cbd5e1; white-space: pre-line; margin-bottom: 20px;">

@@ -20,7 +20,7 @@ chrome.runtime.onInstalled.addListener(() => {
       });
       chrome.contextMenus.create({
         id: 'open_history',
-        title: '📜 Scan History & Google Cloud Sync',
+        title: 'Scan History & Google Cloud Sync',
         contexts: ['action']
       });
     });
